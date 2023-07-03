@@ -5,6 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="noindex"/>
         <title>Content Manager</title>
+
+        <!-- Include Netlify Identity for authentication -->
+        <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     </head>
     <body>
         <!-- Add a menu: Log in / Sign up - when the user is not logged in Username / Log out - when the user is logged in -->
@@ -13,18 +16,5 @@
         <div data-netlify-identity-button>Login with Netlify Identity</div>
         <!-- Include the script that builds the page and powers Decap CMS -->
         <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
-        <!-- Include Netlify Identity for authentication -->
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        <script>
-            if (window.netlifyIdentity) {
-                window.netlifyIdentity.on("init", user => {
-                    if (!user) {
-                        window.netlifyIdentity.on("login", () => {
-                            document.location.href = "/admin/";
-                        });
-                    }
-                });
-            }
-        </script>
     </body>
 </html>

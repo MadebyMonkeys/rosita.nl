@@ -37,7 +37,6 @@ site.use(attributes())
     .use(netlify_cms());
 
 site.copy("static/images", "/img/")
-    .copy("scripts", ".")
-    .copy([".js"]);
+    .copy("scripts", "/js/");
 
 export default site;

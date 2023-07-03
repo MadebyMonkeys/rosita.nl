@@ -36,7 +36,6 @@ site.use(attributes())
     .use(svgo())
     .use(netlify_cms());
 
-site.copy("static/images", "/img/")
-    .copy("scripts", "/js/");
+site.copy("static", ".");
 
 export default site;

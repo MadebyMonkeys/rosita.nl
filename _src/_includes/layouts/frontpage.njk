@@ -15,27 +15,6 @@
             </div>
         </footer>
         <script type="module">
-            const navbar = document.querySelector('.navbar');
-            const menu = document.querySelector(".site-nav");
-            const toggle = document.getElementById("hamburgerMenu");
-            // Toggle mobile site navigation
-            function toggleMenu() {
-                navbar.classList.toggle("has-background");
-                menu.classList.toggle("active");
-            }
-            // Add click event listener to the toggle element
-            toggle.addEventListener("click", toggleMenu);
-            const targetElement = document.getElementById('onScroll');
-            // Add a scroll event listener
-            window.addEventListener('scroll', () => {
-                const scrollPosition = window.scrollY;
-                const threshold = 100;
-                if (scrollPosition >= threshold) {
-                    targetElement.classList.add('has-background');
-                } else {
-                    targetElement.classList.remove('has-background');
-                }
-            });
             //
             // Audio Player with controls
             //

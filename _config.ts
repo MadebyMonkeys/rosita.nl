@@ -33,9 +33,8 @@ site.use(attributes())
             incremental: true,
             treeShaking: true,
         },
-    }));
-
-site.use(netlifyCMS());
+    }))
+    .use(netlify_cms());
 
 site.copy("static", ".")
     .copy("js");

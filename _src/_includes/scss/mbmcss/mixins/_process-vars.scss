@@ -1,0 +1,17 @@
+@use "get-namespace" as *;
+
+@mixin process-vars($passed-vars) {
+    $namespace: get-namespace("css-vars");
+
+    @each $var, $values in $passed-vars {
+        @each $key, $value in $values {
+            @if (type-of($value) == "map") {
+                @each $subkey, $subval in $value {
+                    --#{$namespace}#{$var}-#{$key}-#{$subkey}: #{$subval};
+                }
+            } @else {
+                --#{$namespace}#{$var}-#{$key}: #{$value};
+            }
+        }
+    }
+}

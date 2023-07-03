@@ -1,0 +1,101 @@
+<div class="volume-controller">
+    <div class="icon">
+        <svg
+            width="90px"
+            height="140px"
+            viewBox="0 0 80 70"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <clipPath id="speaker-mask">
+                    <rect fill="#36C9FF" x="-1" y="-1" width="51" height="71"></rect>
+                </clipPath>
+            </defs>
+            <g
+                stroke="#00729C"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                transform="translate(2, 2)">
+                <polyline points="0.48828125 27.3515625 0.48828125 43.6308692 18.1067164 43.6308692 40.9793701 66.5035229 40.9793701 51.8978048"></polyline>
+                <polyline
+                    transform="translate(20.733826, 19.927543) scale(1, -1) translate(-20.733826, -19.927543) "
+                    points="0.48828125 0.3515625 0.48828125 16.6308692 18.1067164 16.6308692 40.9793701 39.5035229 40.9793701 24.8978048"></polyline>
+            </g>
+            <g
+                stroke="#36c9ff"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                transform="translate(2, 2)"
+                clip-path="url(#speaker-mask)">
+                <polyline points="0.48828125 27.3515625 0.48828125 43.6308692 18.1067164 43.6308692 40.9793701 66.5035229 40.9793701 51.8978048"></polyline>
+                <polyline
+                    transform="translate(20.733826, 19.927543) scale(1, -1) translate(-20.733826, -19.927543) "
+                    points="0.48828125 0.3515625 0.48828125 16.6308692 18.1067164 16.6308692 40.9793701 39.5035229 40.9793701 24.8978048"></polyline>
+            </g>
+            <g
+                id="mute-indicator"
+                transform="translate(38, 29)"
+                stroke="#36c9ff"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="transform-origin: 47px 35px">
+                <path d="M0,0 L12.6189194,12.6189194"></path>
+                <path
+                    d="M0,0 L12.6189194,12.6189194"
+                    transform="translate(6.309460, 6.309460) scale(-1, 1) translate(-6.309460, -6.309460) "></path>
+            </g>
+            <g
+                id="sound-waves"
+                transform="translate(48, 11)"
+                stroke="#00729C"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="transform-origin: 47px 35px">
+                <path d="M0,36.7487373 C3.16687711,33.5818602 5.12563133,29.2068602 5.12563133,24.3743687 C5.12563133,19.5418771
+                    3.16687711,15.1668771 0,12"></path>
+                <path d="M7.51471863,48.7487373 C13.7526635,42.5107924 17.6109127,33.8931517 17.6109127,24.3743687 C17.6109127,14.8555856
+                    13.7526635,6.23794492 7.51471863,0"></path>
+            </g>
+            <g
+                id="volume-waves"
+                transform="translate(48, 11)"
+                stroke="#36c9ff"
+                stroke-width="3"
+                fill="none"
+                fill-rule="evenodd"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                style="transform-origin: 47px 35px">
+                <path
+                    id="small-wave"
+                    d="M0,36.7487373 C3.16687711,33.5818602 5.12563133,29.2068602 5.12563133,24.3743687 C5.12563133,19.5418771
+                        3.16687711,15.1668771 0,12"
+                    stroke-dasharray="27, 50"></path>
+                <path
+                    id="big-wave"
+                    d="M7.51471863,48.7487373 C13.7526635,42.5107924 17.6109127,33.8931517 17.6109127,24.3743687 C17.6109127,14.8555856
+                        13.7526635,6.23794492 7.51471863,0"></path>
+            </g>
+        </svg>
+    </div>
+    <div class="slider">
+        <div class="bar">
+            <div class="bottom-part"></div>
+        </div>
+        <div class="thumb"></div>
+        <input type="range" min="0" max="100" value="0"/>
+    </div>
+</div>

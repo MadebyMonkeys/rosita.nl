@@ -1,0 +1,126 @@
+@use "abstracts/index" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=PT+Sans:wght@400;700&display=swap');
+
+$mbm-config: (
+    "css-vars":(
+        "themes": (
+            "defaults": (
+                "tokens": (
+                    "clr": (
+                        "text": #050d1a,
+                        "surface": #e5edfa,
+                        "primary": #f5c211,
+                        "secondary": #071126,
+                        "accent": #26dfdf,
+                    ),
+                    "color": $mbm-colors,
+                    "ff": (
+                        "base": "'PT Sans', sans-serif",
+                        "accent": "'Nunito', sans-serif",
+                    ),
+                    "fs": (
+                        "100": clamp(0.63rem, calc(0.84rem + -0.27vw), 0.78rem),
+                        "200": clamp(0.88rem, calc(0.96rem + -0.09vw), 0.94rem),
+                        "300": clamp(1.13rem, calc(1.08rem + 0.22vw), 1.25rem),
+                        "400": clamp(1.35rem, calc(1.20rem + 0.73vw), 1.77rem),
+                        "500": clamp(1.62rem, calc(1.31rem + 1.53vw), 2.50rem),
+                        "600": clamp(1.94rem, calc(1.39rem + 2.77vw), 3.53rem),
+                        "700": clamp(2.33rem, calc(1.41rem + 4.63vw), 5.00rem),
+                        "800": clamp(2.80rem, calc(1.32rem + 7.42vw), 7.07rem),
+                    ),
+                    "width": (
+                        "xs": 30rem,
+                        "sm": 40rem,
+                        "md": 48rem,
+                        "lg": 64rem,
+                        "xl": 77.5em,
+                    ),
+                    "space": $mbm-space-scale,
+                    "grid": (
+                        "page-width": var(--wrap-width, var(--width-xl)),
+                        "page-gutter": 5dvw,
+                        "page-main": "2 / 3",
+                        "page": minmax(var(--grid-page-gutter), 1fr) minmax(0, var(--grid-page-width)) minmax(var(--grid-page-gutter), 1fr),
+                    ),
+                    "layer": (
+                        "below": "-1",
+                        "1": "10",
+                        "2": "20",
+                        "3": "30",
+                        "4": "40",
+                        "5": "50",
+                        "top": "2147483647",
+                    ),
+                ),
+            ),
+            "dark": (
+                "prefers-color-scheme": "dark",
+                "tokens": (
+                    "clr": (
+                        "text": #e1e0e0,
+                        "surface": #0B1834,
+                    ),
+                ),
+            ),
+            "dark-toggle": (
+                "prefix": "[data-theme="dark"]",
+                "tokens": (
+                    "clr": (
+                        "text": #e1e0e0,
+                        "surface": #0B1834,
+                    ),
+                ),
+            ),
+        ),
+    ),
+    "color": (
+        "values": $mbm-colors,
+        "output": "standard",
+        "property": "color",
+    ),
+    "bgcolor": (
+        "values": $mbm-colors,
+        "output": "standard",
+        "property": "background-color",
+    ),
+    "fs": (
+        "values": $mbm-type-scale,
+        "output": "standard",
+        "property": "font-size",
+    ),
+    "weight": (
+        "values": (
+            "thin": 100,
+            "extralight": 200,
+            "light": 300,
+            "regular": 400,
+            "medium": 500,
+            "semibold": 600,
+            "bold": 700,
+            "extrabold": 800,
+            "black": 900,
+        ),
+        "output": "standard",
+        "property": "font-weight",
+    ),
+    "text": (
+        "values": (
+            "left": left,
+            "center": center,
+            "right": right,
+        ),
+        "output": "standard",
+        "property": "text-align",
+    ),
+    "gap": (
+        "values": $mbm-space-scale,
+        "output": "standard",
+        "property": "gap",
+    ),
+    "breakpoints":(
+        "sm": "(min-width: 36em)",
+        "md": "(min-width: 48em)",
+        "lg": "(min-width: 62em)",
+    ),
+)!default;

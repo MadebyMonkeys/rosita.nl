@@ -1,0 +1,31 @@
+@use "../config" as *;
+@use "get-namespace" as name;
+@use "generate-css" as css;
+
+@mixin process-collection($collection, $prefix, $utility, $has-breakpoint) {
+    $values: map-get($collection, "values");
+    $output: map-get($collection, "output");
+    $property: map-get($collection, "property");
+    $use-css-vars: map-get($collection, "css-vars");
+    $vars-key: '';
+
+    $utility: name.get-namespace('classes') + $utility;
+
+    @if ($use-css-vars) {
+        $vars: map-get($mbm-config, 'css-vars');
+        $vars-key: map-get($collection, 'values');
+        $values: map-get($vars, $vars-key);
+    }
+
+    @if ($values and $property) {
+        @if ($output == "responsive") {
+            @include css.generate-css(#{$prefix + $utility}, $values, $property, $use-css-vars, $vars-key);
+        }
+
+        @if ($output == "standard") {
+            @if ($has-breakpoint != true) {
+                @include css.generate-css(#{$prefix + $utility}, $values, $property, $use-css-vars, $vars-key);
+            }
+        }
+    }
+}

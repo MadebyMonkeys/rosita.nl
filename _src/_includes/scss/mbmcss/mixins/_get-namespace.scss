@@ -1,0 +1,30 @@
+@use "../config" as *;
+
+@function get-namespace($namespace-type) {
+
+    $namespace-defaults: (
+        "prefix": "",
+        "classes": true,
+        "css-vars": false
+    );
+
+    $namespace-settings: map-get($mbm-config, "namespace");
+
+    @if ($namespace-settings == null) {
+        @return "";
+    }
+
+    $namespace-settings-merged: map-merge($namespace-defaults, $namespace-settings);
+    $prefix: map-get($namespace-settings-merged, "prefix");
+
+    $should-display-prefix: map-get($namespace-settings-merged, $namespace-type);
+
+    $is-settings-boolean: type-of($should-display-prefix) == bool;
+    @if ($should-display-prefix and $is-settings-boolean) {
+        @return "prefix";
+    } @else if ($should-display-prefix and $is-settings-boolean == false) {
+        @return $should-display-prefix;
+    } @else {
+        @return "";
+    }
+}

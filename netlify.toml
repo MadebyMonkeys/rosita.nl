@@ -1,0 +1,12 @@
+[build]
+    publish = "_site"
+    command = """
+        curl -fsSL https://deno.land/x/install/install.sh | sh && \
+        /opt/buildhome/.deno/bin/deno task build \
+    """
+
+
+[[redirects]]
+    from = "/*"
+    status = 404
+    to = "/404"

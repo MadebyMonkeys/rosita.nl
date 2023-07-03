@@ -1,0 +1,40 @@
+---
+layout: layouts/frontpage.njk
+templateEngine: njk,md
+title: Home
+---
+<section class="hero [ region row fullwidth ]">
+    <div class="hero__image">
+        <div class="hero__content flow">
+            <h1>Luister en geniet met Radio Rosita!</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed tempore maxime ut expedita asperiores odit accusamus perferendis assumenda, quia facere dolores quidem quos praesentium odio?</p>
+        </div>
+    </div>
+</section>
+<section class="[ row fullwidth ]">
+    <div>
+        {% comp "Player" %}{% endcomp %}
+    </div>
+</section>
+<section class="about [ region row fullwidth ]">
+    <div class="auto-grid" data-layout="halfs">
+        <div class="about__content flow">
+            <h2>Wij hebben een rijke geschiedenis</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat magnam hic sit. Inventore est reprehenderit, totam dolorem unde delectus voluptas ratione consequuntur. Quibusdam, nesciunt nobis doloremque harum amet quos incidunt?</p>
+            <a href="/about" class="button primary">Lees meer</a>
+        </div>
+        <div class="about__image">
+            <img src="/img/about-img.webp" alt="">
+        </div>
+    </div>
+</section>
+<section class="events section-bg [ region row fullwidth ]">
+    <div>
+        Events in here
+    </div>
+</section>
+<section class="blog [ region row fullwidth ]">
+    <div>
+        Blog posts in here
+    </div>
+</section>

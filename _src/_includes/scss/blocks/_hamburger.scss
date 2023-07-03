@@ -1,0 +1,76 @@
+.hamburger-menu {
+    --bar-width: 32px;
+    --bar-height: 4px;
+    --hamburger-gap: 6px;
+
+    --foreground: var(--clr-text);
+    --background: var(--clr-surface);
+
+    --animation-timing: 200ms ease-in-out;
+
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
+.hamburger-menu {
+    appearance: none;
+    --x-width: calc(var(--hamburger-height) * 1.41421356237);
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    cursor: pointer;
+    border: 0;
+    order: 2;
+    outline: 0;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after,
+.hamburger-menu input {
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    transform-origin: left center;
+    border-radius: 9999px;
+    transition: opacity var(--animation-timing), width var(--animation-timing), rotate var(--animation-timing), translate var(--animation-timing);
+}
+
+.hamburger-menu input {
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+.hamburger-menu.open {
+    &::before {
+        rotate: 45deg;
+        width: var(--x-width);
+        translate: 0 calc(var(--bar-height) / -2);
+    }
+
+    input {
+        opacity: 0;
+        width: 0;
+    }
+
+    &::after {
+        rotate: -45deg;
+        width: var(--x-width);
+        translate: 0 calc(var(--bar-height) / 2);
+    }
+}
+
+.hamburger-menu:has(input:focus-visible)::before,
+.hamburger-menu:has(input:focus-visible)::after, 
+.hamburger-menu input:focus-visible {
+    border: 1px solid var(--background);
+    box-shadow: 0 0 0 1px var(--foreground);
+}
+
+@media all and (min-width: 50rem) {
+    .hamburger-menu {
+        display: none;
+    }
+}

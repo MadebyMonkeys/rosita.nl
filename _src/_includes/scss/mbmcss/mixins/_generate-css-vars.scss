@@ -1,0 +1,39 @@
+@use "process-vars" as *;
+
+@mixin generate-css-vars($vars) {
+    @if ($vars) {
+        $themes: map-get($vars, "themes");
+
+        :root {
+            @include process-vars(map-remove($vars, "themes"));
+        }
+
+        @if ($themes) {
+            @each $name, $theme in $themes {
+                $prefix: map-get($theme, "prefix");
+                $tokens: map-get($theme, "tokens");
+                $prefers-color-scheme: map-get($theme, "prefers-color-scheme");
+
+                @if not($prefix) {
+                    $prefix: ":root";
+                }
+
+                @if ($prefers-color-scheme) {
+                    @media (prefers-color-scheme: #{$prefers-color-scheme}) {
+                        #{$prefix} {
+                            @include process-vars($tokens);
+                        }
+                    }
+                } @else {
+                    #{$prefix} {
+                        @include process-vars($tokens);
+                    }
+                }
+            }
+        } @else {
+            :root {
+                @include process-vars($vars);
+            }
+        }
+    }
+}

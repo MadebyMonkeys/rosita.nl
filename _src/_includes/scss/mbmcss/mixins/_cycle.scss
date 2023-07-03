@@ -1,0 +1,9 @@
+@use "process-collection" as *;
+
+@mixin cycle($map, $prefix, $has-breakpoint) {
+    @each $utility, $settings in $map {
+        @if(type-of($settings) == "map") {
+            @include process-collection($settings, $prefix, $utility, $has-breakpoint);
+        }
+    }
+}

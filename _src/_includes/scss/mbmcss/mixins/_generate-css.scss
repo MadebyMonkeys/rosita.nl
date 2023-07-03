@@ -1,0 +1,28 @@
+@use "get-namespace" as *;
+
+@mixin generate-css($utility, $values, $property, $use-css-vars, $values-key) {
+    
+    $var-namespace: get-namespace('css-vars');
+    
+    @each $key, $value in $values {
+        @if (type-of($value) == map) {
+            @each $subkey, $subvalue in $value {
+                .#{$utility}-#{$key}-#{$subkey} {
+                    @if ($use-css-vars) {
+                        #{$property}: var(--#{$var-namespace + $values-key + '-' + $key + '-' + $subkey});
+                    } @else {
+                        #{$property}: #{$subvalue};
+                    }
+                }
+            }
+        } @else {
+            .#{$utility}-#{$key} {
+                @if ($use-css-vars) {
+                    #{$property}: var(--#{$var-namespace + $values-key + '-' + $key});
+                } @else {
+                    #{$property}: #{$value};
+                }
+            }
+        }
+    }
+}

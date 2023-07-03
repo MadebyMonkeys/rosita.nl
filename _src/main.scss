@@ -1,0 +1,179 @@
+// -----------------------------------------------------------------------------
+// MBMCSS
+// -----------------------------------------------------------------------------
+@use "scss/mbmcss/config" as *;
+@use "scss/mbmcss/mixins/index" as mixin;
+
+// Vars
+$settings: $mbm-config;
+$css-vars: map-get($settings, "css-vars");
+
+// Design tokens
+@include mixin.generate-css-vars($css-vars);
+
+// Utility classes
+@include mixin.generate-utility-classes($settings);
+
+// -----------------------------------------------------------------------------
+// Import reset
+// -----------------------------------------------------------------------------
+
+@import "scss/reset";
+
+
+
+/* -----------------------------------------------------------------------------
+ * CSS Globals
+ * -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+
+
+html {
+    color-scheme: light dark;
+}
+
+
+
+body {
+    background-color: var(--clr-surface);
+    color: var(--clr-text);
+    font-size: var(--fs-300);
+    font-family: var(--ff-base);
+    line-height: 1.6;
+}
+
+
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+p,
+li,
+blockquote:not([class]) {
+    max-width: var(--wrap-width, 65ch);
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Headings
+ * -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--ff-accent);
+    font-weight: 900;
+    line-height: 1.2;
+    text-wrap: balance;
+}
+
+h1 {
+    font-size: var(--fs-700);
+    --flow-space: 2em;
+}
+
+h2 {
+    font-size: var(--fs-600);
+    --flow-space: 1.75em;
+}
+
+h3 {
+    font-size: var(--fs-500);
+    --flow-space: 1.5em;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Compositions
+ * -------------------------------------------------------------------------- */
+
+@import "scss/compositions/index";
+
+.page,
+.row {
+    display: grid;
+    grid-template-columns: var(--grid-page);
+
+    & > * {
+        grid-column: var(--grid-page-main);
+    }
+
+    &>.fullwidth {
+        grid-column: 1 / -1;
+    }
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Utilities
+ * -------------------------------------------------------------------------- */
+
+@import "scss/utilities/index";
+
+.section-bg {
+    background-color: var(--clr-primary);
+}
+
+
+
+/* -----------------------------------------------------------------------------
+ * Blocks
+ * -------------------------------------------------------------------------- */
+
+@import "scss/blocks/index";
+
+.hero {
+    background: var(--clr-primary) url("https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80") no-repeat center center;
+    background-size: cover;
+    background-blend-mode: overlay;
+
+    & > * {
+        align-items: center;
+    }
+
+    &__image {
+        align-items: center;
+    }
+
+    &__content {
+        color: var(--clr-secondary);
+        padding: clamp(2em, 10dvw, 5em) clamp(3em, 11dvw, 6em);
+
+        h1 {
+            font-size: var(--fs-800);
+        }
+    }
+}
+
+.about {
+    
+    .auto-grid {
+        align-items: center;
+        gap: var(--space-xl);
+    }
+
+    &__image {
+        img {
+            border-radius: 1em;
+        }
+    }
+}
+.footer {
+    --region-space: var(--space-lg);
+}

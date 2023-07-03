@@ -1,0 +1,9 @@
+.flexible-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s-l);
+}
+
+.flexible-grid > * {
+    flex: 1;
+}

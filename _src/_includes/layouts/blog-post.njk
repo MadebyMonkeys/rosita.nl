@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include "head.njk" %}
+<body>
+    <!-- Page: Header -->
+    {% include "sitenav.njk" %}
+
+    <!-- Page: Content -->
+    <main class="page">
+        <section class="[ region row fullwidth ]">
+            <div class="flow">
+                {{ content | safe }}
+            </div>
+        </section>
+    </main>
+
+    <!-- Page: Footer -->
+    <footer class="footer [ region row fullwidth ]">
+        <div>
+            <p>&copy; copyright 2023 Radio Rosita</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -15,12 +15,8 @@ const site = lume({
 });
 
 site.use(attributes())
-    .use(inline())
-    .use(metas())
-    .use(imagick())
     .use(sass())
     .use(postcss())
-    .use(svgo())
     .use(esbuild({
         extensions: [".ts", ".js"],
         options: {
@@ -34,9 +30,14 @@ site.use(attributes())
             treeShaking: true,
         },
     }))
+    .use(metas())
+    .use(imagick())
+    .use(inline())
+    .use(svgo())
     .use(netlify_cms());
 
 site.copy("static/images", "/img/")
-    .copy("js");
+    .copy("scripts")
+    .copy([".js"]);
 
 export default site;

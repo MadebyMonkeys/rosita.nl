@@ -10,9 +10,7 @@ import svgo from "lume/plugins/svgo.ts";
 import esbuild from "lume/plugins/esbuild.ts";
 
 const site = lume({
-    server: {
-        open: true,
-    },
+    location: new URL("unique-axolotl-2a0d48.netlify.app"),
     src: "./_src",
 });
 
